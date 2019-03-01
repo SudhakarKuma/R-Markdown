@@ -1,7 +1,15 @@
 ---
+<<<<<<< HEAD
 R Markdown
 ---
 
+=======
+title: R Markdown
+---
+
+# R Markdown
+
+>>>>>>> edffd7e64a2955738065aa86bedc5316b9f7dadc
 This is a test file to create a document using R Markdown. 
 
 * To run the `.Rmd` file, download the folder **R-Markdown**. 
