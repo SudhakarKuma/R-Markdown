@@ -12,7 +12,7 @@ This is a test file to create a document using R Markdown.
 * Open the `.Rmd` file(s). 
 * In the **Source** window, click on **Knit** to run the file and generate PDF. 
 
-# Features used in this .Rmd file 
+# Features used in .Rmd files 
 
 * Inserting code chunks 
 * Using bullet points 
