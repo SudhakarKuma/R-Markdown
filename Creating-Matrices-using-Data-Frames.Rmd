@@ -2,6 +2,8 @@
 title: |
   | Additional Material for Creating Matrices 
   | using Data Frames
+author: "Sudhakar Kumar"
+date: "1 March 2019"
 output: pdf_document
 bibliography: references.bib
 ---

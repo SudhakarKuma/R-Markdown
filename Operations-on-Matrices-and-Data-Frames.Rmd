@@ -1,0 +1,115 @@
+---
+title: |
+  | Additional Material for Operations on Matrices 
+  | and Data Frames
+author: "Sudhakar Kumar"
+date: "15 March 2019"
+output: pdf_document
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Calculating the inverse of a matrix
+The standard R function to calculate the inverse of a matrix is `solve`, which comes with the **R Base** package. This generic function (`solve`) solves the linear system **`a %*% x = b`** for `x`. In this equation, `a` is a square numeric or complex matrix containing the coefficients of the linear system. `b` is a numeric or complex vector or matrix giving the right-hand side of the linear system [@RHelp]. If missing, `b` is taken to be an identity matrix and `solve` function will return the inverse of `a`. 
+
+Suppose we want to find the inverse of the following matrix `matA`.
+```{r echo=TRUE}
+matAdata <- c(5, 1, 0, 3, -1, 2, 4, 0, -1)
+matA <- matrix(matAdata, nrow=3, byrow=TRUE)
+matA
+```
+
+We know that the inverse exists only for non-singular matrices. Thus, we need to make sure that the determinant of `matA` is a non-zero value.  Accordingly, we use `solve` function to calculate the inverse of the matrix `matA`.
+```{r echo=TRUE}
+if(det(matA)!=0) {
+  invA <- solve(matA)
+  invA
+} else {
+    print("matA is a singular matrix!")
+} 
+```
+
+The inverse of `matA` (`invA`), when multiplied by `matA`, gives the identity matrix. Thus, we can also conclude that the inverse of an inverse of a matrix is the matrix itself.   
+```{r echo=TRUE} 
+invA %*% matA
+```
+
+There are other functions also like `inv`, `Inverse` in R which can be used to calculate the inverse of a matrix [@Cran]. These functions are available in the library named `matlib`. 
+
+# Calculating sum of rows or columns of a matrix (or a data frame)
+To calculate sums across all rows in a matrix or dataframe, we use `rowSums` function.
+
+Consider three vectors as given below. 
+```{r echo=TRUE}
+vec1 <- c(1, 2, 3)
+vec2 <- c(4, 5, NA)
+vec3 <- c(6, 7, 8)
+vec1; vec2; vec3
+```
+
+In `vec1`, there is one element `NA`. It is a logical constant of length 1 which contains a missing value indicator. Now, we create a $3 \times 3$ matrix (`matB`) from these three vectors. 
+```{r echo=TRUE}
+matBdata <- c(vec1, vec2, vec3)
+matB <- matrix(matBdata, nrow = 3)
+matB
+```
+
+Suppose we want to find the sums across all rows in `matB`. For this, we use `rowSums` function. 
+```{r echo=TRUE}
+rowSums(matB)
+```
+
+For `matB`, the sums across first row and second row are evaluated to be 11 and 14 respectively. However, the sum across third row is evaluated to be `NA`. This is due to the fact that the third row of `matB` contains `NA`. Thus, we need to remove this `NA`, if we want to add the remaining elements in this row. For this, we use another logical argument `na.rm` in `rowSums` function. By default, `na.rm` is set to `FALSE`.  
+```{r echo=TRUE}
+rowSums(matB, na.rm = TRUE)
+```
+
+Similarly, we use `colSums` function to calculate sums across all columns in a matrix or dataframe [@Bookdown]. 
+```{r echo=TRUE}
+colSums(matB, na.rm = TRUE)
+```
+
+
+Suppose we want to find the mean across all columns in `matB`. For this, we use `colMeans` function. 
+```{r echo=TRUE}
+colMeans(matB, na.rm = TRUE)
+```
+
+Similarly,  we can use `rowMeans` function to find the mean across all rows in a matrix. 
+```{r echo=TRUE}
+rowMeans(matB, na.rm = TRUE)
+```
+
+
+# Adding row(s) or column(s) to a matrix
+Consider two different vectors as given below. 
+```{r echo=TRUE}
+vec4 <- 9:12
+vec5 <- 13:16
+vec4; vec5
+```
+
+Now, we create a $4 \times 2$ matrix using these two vectors `vec4` and `vec5`. 
+```{r echo=TRUE}
+matCdata <- c(vec4, vec5)
+matC <- matrix(matCdata, nrow = 4, ncol = 2)
+matC
+```
+
+Now, suppose we want to add a vector (with elements as 17, 18, 19, and 20) as a column to the matrix `matC`. For this, we use `cbind` function.
+```{r echo=TRUE}
+matC <- cbind(matC, 17:20)
+matC
+```
+
+Thus, the updated matrix `matC` contains 4 rows and 3 columns. This can also be verified by using `dim` function. 
+```{r echo=TRUE}
+dim(matC)
+```
+
+
+# References
+
