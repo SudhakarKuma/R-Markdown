@@ -50,7 +50,7 @@ vec3 <- c(6, 7, 8)
 vec1; vec2; vec3
 ```
 
-In `vec1`, there is one element `NA`. It is a logical constant of length 1 which contains a missing value indicator. Now, we create a $3 \times 3$ matrix (`matB`) from these three vectors. 
+In `vec2`, there is one element `NA`. It is a logical constant of length 1 which contains a missing value indicator. Now, we create a $3 \times 3$ matrix (`matB`) from these three vectors. 
 ```{r echo=TRUE}
 matBdata <- c(vec1, vec2, vec3)
 matB <- matrix(matBdata, nrow = 3)
