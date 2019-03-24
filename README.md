@@ -17,6 +17,7 @@ This is a test file to create a document using R Markdown.
 * Inserting code chunks 
 * Using bullet points 
 * Formatting text as bold
+* Adding images 
 * Using references 
 
 # View the data frame
