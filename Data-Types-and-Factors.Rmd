@@ -1,0 +1,109 @@
+---
+title: ' Additional Material on Data Types and Factors'
+output:
+  pdf_document: default
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data types in R 
+In R programming language, the variables are not declared as some data type unlike other programming languages e.g. **C** and **Java**. The variables are assigned with R-objects and the data type of the R-object becomes the data type of the variable [@tutpoint]. Hence, everything in R is an object. There are many types of R-objects. The frequently used ones are as given below: 
+
+* **Vector**
+* **List**
+* **Matrix**
+* **Array**
+* **Factor**
+* **Data Frame**
+
+The simplest of these objects is the **vector** object. R language has five frequently used atomic vector types [@carpent]: 
+
+* **Logical** -- `TRUE`, `FALSE`
+* **Integer** -- `2L`, `4L`, etc. (the `L` tells **R** to store this as an integer)
+* **Numeric** -- `5`, `12.5`, etc.
+* **Complex** -- `1 + 4i`, `2 + i`, etc.
+* **Character** -- `"Hello"`, `"R"`, etc. 
+
+By *atomic*, we mean the vector only holds data of a single type. We will learn how to declare these atomic vector types. 
+
+A logical type includes two elements namely, `TRUE` and `FALSE`.
+
+```{r echo=TRUE}
+testData <- FALSE
+print(class(testData))
+```
+
+In order to declare an integer in R language, we need to add an `L` suffix. Alternatively, one can also use `as.integer` function. 
+
+```{r echo=TRUE}
+testData <- 5L
+print(class(testData))
+```
+
+```{r echo=TRUE}
+testData <- as.integer(5)
+print(class(testData))
+```
+
+The numeric vector type is very simple to declare. We can assign the desired number directly to an object.
+
+```{r echo=TRUE}
+testData <- 12.5
+print(class(testData))
+```
+
+```{r echo=TRUE}
+testData <- 12
+print(class(testData))
+```
+
+A complex number has two parts: real and imaginary. The imaginary part is written with an `i` suffix. 
+
+```{r echo=TRUE}
+testData <- 5 + 4i
+print(class(testData))
+```
+
+A character is written within double quotes and then assigned to an object. 
+
+```{r echo=TRUE}
+testData <- "R Programming Language"
+print(class(testData))
+```
+
+There is one more vector type called `raw`, which is intended to hold raw bytes. For declaring an object of raw type, we use `charToRaw` function. 
+
+```{r echo=TRUE}
+testData <- charToRaw("Hello")
+print(testData)
+print(class(testData))
+```
+
+`R` provides many built-in functions to examine features of vectors and other objects. For example, we can find the length of a vector by using `length` function. 
+
+```{r echo=TRUE}
+testData <- seq(from = 1, to = 10, by = 0.5)
+paste("The length of testData is", length(testData))
+```
+
+Also, `class` and `typeof` functions are used to find the data type of the object. 
+
+# Creating vectors in R 
+One can create an empty vector using `vector` function. For example, we want to create an empty character vector of length 3. 
+
+```{r echo=TRUE}
+vector("character", length = 3)
+```
+
+Similarly, we can create a numeric vector of length 5 by modifying the values of arguments present in `vector` function. 
+
+```{r echo=TRUE}
+vector("numeric", length = 5)
+```
+
+
+# References 
+
