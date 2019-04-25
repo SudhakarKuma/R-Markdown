@@ -1,9 +1,9 @@
 ---
-title: ' Additional Material on Data Types and Factors'
-author: "Sudhakar Kumar"
-date: "11 April 2019"
+title: ' Additional Material on Data Types and Factors ^[For any suggestions/comments, please write to contact-r@fossee.in]'
 output:
   pdf_document: default
+  html_document:
+    df_print: paged
 bibliography: references.bib
 ---
 
@@ -107,5 +107,5 @@ vector("numeric", length = 5)
 ```
 
 
-# References 
 
+# References 

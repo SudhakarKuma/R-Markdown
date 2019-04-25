@@ -1,0 +1,64 @@
+---
+title: "Additional Material for Lists and its Operations"
+author: "Sudhakar Kumar"
+date: "25 April 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Lists in R 
+A list is an R object. It has components of mixed data types like 
+
+* strings
+* numbers
+* vectors or 
+* some other list inside it 
+
+A list can also contain a matrix or a function as its elements. 
+
+# Creating a list in R 
+For example, we will create a list containing a vector, a matrix and one built-in dataset. First, we need to declare these three components. As `iris` dataset is having 150 rows, we will consider its seven rows only.  
+
+```{r echo=TRUE}
+myVector <- c(1:5)
+myMatrix <- matrix(1:15, nrow = 5, ncol = 3, byrow = TRUE)
+myDataSet <- iris[c(1:2,51:52,100:102),]
+```
+
+Now, we use `list` function to create the list and `names` function to add names to the elements of our list. 
+
+```{r echo=TRUE}
+myList <- list(myVector, myMatrix, myDataSet)
+names(myList) <- c("vector", "matrix", "dataset")
+print(myList)
+```
+
+# Accessing the elements of a list 
+
+In case of named list, we can retrieve the elements by their names. 
+
+```{r echo=TRUE}
+myList$dataset
+```
+
+Also, the elements of a list can be retrieved by using the single square bracket `[]` operator.
+
+```{r echo=TRUE}
+myList[3]
+```
+
+In order to reference a list member directly, we have to use the double square bracket `[[]]` operator. 
+
+```{r echo=TRUE}
+myList[[3]]
+```
+
+Thus, we can observe that the difference between single square bracket and double square brackets is that with double square brackets, the name of the element (`dataset`) is not displayed. According to a discussion in the forum of   **Analytics Vidhya**, we need `[[` (double square brackets) when working with lists. This is because when `[` (single square bracket) is applied to a list, it always returns a list: it never gives us the contents of the list. To get the contents, we need `[[` (double square brackets).  This can also be verified by using `class` function. 
+
+```{r}
+class(myList$dataset); class(myList[3]); class(myList[[3]])
+```
+
