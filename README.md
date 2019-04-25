@@ -23,4 +23,4 @@ This is a test file to create a document using R Markdown.
 # View the data frame
 
 * Open the script **myData.R** 
-* Run this to view the data **CaptaincyData.csv**. 
+* Run this script to view the data frame (dataset) **CaptaincyData.csv**. 
