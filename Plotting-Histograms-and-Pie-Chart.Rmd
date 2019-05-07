@@ -1,0 +1,39 @@
+---
+title: "| Additional Material for Plotting Histograms \n| and Pie Chart\n"
+author: "Sudhakar Kumar"
+date: "5 May 2019"
+output:
+  pdf_document: default
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data frame for analysis 
+A data frame [@Mine] comprising information on movies has been used. It contains 651 observations (rows), each representing a movie, and 32 variables (columns). This data frame can be loaded in **R** either by using `read.csv` function or by `load` function. 
+
+```{r echo=TRUE}
+load(url("https://stat.duke.edu/~mc301/data/movies.Rdata"))
+dim(movies)
+```
+
+# Handling the missing values in data frame
+There is an object named `runtime` in `movies` data frame. `runtime` denotes the runtime of movie (in minutes). We can find the range of `runtime` in `movies` by using `range` function. `range` function returns a vector containing the minimum and maximum of the given argument(s).
+
+```{r echo=TRUE}
+range(movies$runtime)
+```
+
+**R** returns `NA` and `NA` as minimum and maximum runtime of `movies`. It means that `runtime` object contains `NA`. 
+
+`NA` stands for **not available**. `NA` [@Edwin]  is a placeholder for a missing value. All basic operations in **R** handle `NA` without crashing and mostly return `NA` as an answer whenever one of the input arguments is `NA`. To know, the range of `runtime` in movies, we need to remove the **NAs**. For this, we set the argument `na.rm` to be `TRUE`. 
+
+```{r echo=TRUE}
+minMax <- range(movies$runtime, na.rm = TRUE)
+paste("Minimum runtime is", minMax[1], "minutes.")
+paste("Maximum runtime is", minMax[2], "minutes.")
+```
+
+# References 
