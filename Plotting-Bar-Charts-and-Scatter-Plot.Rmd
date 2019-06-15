@@ -1,7 +1,7 @@
 ---
 title: "| Additional Material for Plotting Bar Charts and \n| Scatter Plot\n"
-author: "Sudhakar Kumar"
-date: "29 May 2019"
+#author: "Sudhakar Kumar"
+#date: "29 May 2019"
 output: pdf_document
 bibliography: references.bib
 ---
@@ -91,7 +91,5 @@ text(x = x - 0.95,
      xpd = TRUE, 
      srt = 50)
 ```
-
-There are certainly other ways also to adjust the labels in plots. 
 
 # References 
